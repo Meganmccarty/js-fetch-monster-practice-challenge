@@ -48,10 +48,12 @@ function createMonster(e) {
 
     console.log(configObj);
 
-    fetch(monstersAPI, configObj)
+    fetch(`http://localhost:3000/monsters/?_limit=50&_page=${currentPage}`, configObj)
     .then(response => response.json())
     .then(data => displayData(data))
     .catch(error => console.log(error));
+
+    form.reset();
 }
 
 forwardButton.addEventListener('click', goForward);
